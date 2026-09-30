@@ -1,0 +1,155 @@
+{
+  "protocol": {
+    "seed": 20261001,
+    "paths": 20,
+    "sessions": 1008,
+    "assets": 12,
+    "training_sessions": 252,
+    "validation_sessions": 63,
+    "covariance_block": 63,
+    "rebalance_sessions": 21,
+    "regime_breaks": [
+      0,
+      336,
+      672
+    ],
+    "student_degrees_of_freedom": 5,
+    "shrinkage_grid": [
+      0.0,
+      0.05,
+      0.15,
+      0.35,
+      0.65
+    ],
+    "position_cap": 0.25,
+    "one_way_cost_bp": 5.0,
+    "annual_sessions": 252,
+    "bootstrap_draws": 4000,
+    "selection": "initial chronological validation only; per-method alpha then frozen throughout the holdout",
+    "covariance_target": "diagonal of each estimated covariance",
+    "score": "zero-mean Gaussian quasi-likelihood, constants omitted, per asset",
+    "scope": "synthetic zero-mean Student t returns; known regime covariances; daily weight drift and proportional rebalance costs"
+  },
+  "aggregate": [
+    {
+      "strategy": "equal_weight",
+      "paths": 20,
+      "mean_annualized_volatility": 0.06278300975717052,
+      "mean_es99_loss": 0.014070297661153395,
+      "mean_total_cost_fraction": 0.000823512912120888,
+      "mean_quasi_likelihood": -7.604136463220984,
+      "variance_forecast_relative_bias": 0.05049894484023709
+    },
+    {
+      "strategy": "sample",
+      "paths": 20,
+      "mean_annualized_volatility": 0.06037886923949411,
+      "mean_es99_loss": 0.01367331764752163,
+      "mean_total_cost_fraction": 0.0023587197767485383,
+      "mean_quasi_likelihood": -7.604136463220984,
+      "variance_forecast_relative_bias": -0.19524471659650267
+    },
+    {
+      "strategy": "shrinkage",
+      "paths": 20,
+      "mean_annualized_volatility": 0.05970239450626412,
+      "mean_es99_loss": 0.01360043391755301,
+      "mean_total_cost_fraction": 0.001710520031369054,
+      "mean_quasi_likelihood": -7.62620377681766,
+      "variance_forecast_relative_bias": -0.01647457481268977
+    },
+    {
+      "strategy": "log_mean",
+      "paths": 20,
+      "mean_annualized_volatility": 0.0599456577245428,
+      "mean_es99_loss": 0.0136633548347286,
+      "mean_total_cost_fraction": 0.0018166231769869087,
+      "mean_quasi_likelihood": -7.590860969289947,
+      "variance_forecast_relative_bias": -0.2188866650061312
+    },
+    {
+      "strategy": "affine_mean",
+      "paths": 20,
+      "mean_annualized_volatility": 0.05984388123594318,
+      "mean_es99_loss": 0.013625459174944949,
+      "mean_total_cost_fraction": 0.0017540871342318764,
+      "mean_quasi_likelihood": -7.591641017596032,
+      "variance_forecast_relative_bias": -0.21891524061228218
+    },
+    {
+      "strategy": "oracle",
+      "paths": 20,
+      "mean_annualized_volatility": 0.05370983482388984,
+      "mean_es99_loss": 0.011895559867770654,
+      "mean_total_cost_fraction": 0.00155869711138827,
+      "mean_quasi_likelihood": -7.873419986156305,
+      "variance_forecast_relative_bias": 0.0
+    }
+  ],
+  "comparisons": [
+    {
+      "strategy": "equal_weight",
+      "rms_reduction_vs_sample": -0.04104886103745131,
+      "ci95_low": -0.06354363575070533,
+      "ci95_high": -0.018516822963291397
+    },
+    {
+      "strategy": "sample",
+      "rms_reduction_vs_sample": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.0
+    },
+    {
+      "strategy": "shrinkage",
+      "rms_reduction_vs_sample": 0.011214465427760945,
+      "ci95_low": 0.005257888955432352,
+      "ci95_high": 0.017049782744148926
+    },
+    {
+      "strategy": "log_mean",
+      "rms_reduction_vs_sample": 0.007645314908587664,
+      "ci95_low": -0.003562495836937607,
+      "ci95_high": 0.01770927616025109
+    },
+    {
+      "strategy": "affine_mean",
+      "rms_reduction_vs_sample": 0.009276933442189494,
+      "ci95_low": -0.0012739972969378396,
+      "ci95_high": 0.018990368696456924
+    },
+    {
+      "strategy": "oracle",
+      "rms_reduction_vs_sample": 0.11136027967158646,
+      "ci95_low": 0.09434059294158606,
+      "ci95_high": 0.12653584251516475
+    }
+  ],
+  "diagnostics": {
+    "affine_mean_computations": 720,
+    "maximum_gradient_norm": 9.972952515217162e-10,
+    "maximum_mean_iterations": 26,
+    "all_forecasts_use_past_returns": true,
+    "oracle_covariance_is_unobservable": true
+  },
+  "code_sha256": {
+    "src/geometry_lab/__init__.py": "9141fd67b8d64a05db154dcaa90e03b8691169351c6c9bf53d2c539b71abf7a5",
+    "src/geometry_lab/experiment.py": "b9fe919dc7fc29f359188d259fc6177f33dbdc87c9abfc72860cb5daac68862c",
+    "src/geometry_lab/research.py": "fb182fccece303f1b230b6bf2ea55067624f557384db83687fa2451d3ca5249e",
+    "src/geometry_lab/spd.py": "bc7f9d7d11dd720e91b9c179fc7823fdae6c921e3d255c5ad4241a90c659e223"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "artifact_sha256": {
+    "aggregate_metrics.csv": "ac19917a77040cf4951c43a133b2ceb811a99c7b68acb06e712b3e46af90eeb0",
+    "covariance_diagnostics.csv": "6abdb681ccfb55ff25f776bcb3d6d1249f615ff4dba5358ff8a4e04b67ef4bd7",
+    "daily_portfolios.csv": "ac2f035776ba92ab9be688f9ca9e9d33aafcd0f9f410af046f3e2f2c47c8f06b",
+    "model_selection.csv": "916d043c1f630cedda60849634302c892d9280aec05aef14ddffe63fc2e80f60",
+    "paired_path_intervals.csv": "aad3334155af88c9bd5a35543ba99f750b8f79e257d2a79f3a0b45bef84f12a8",
+    "path_metrics.csv": "1a4e73612f3a688cc9928a59c07a2d899c7ef413d756a9487a692d0a850405be",
+    "synthetic_returns.csv": "096f4efcb82c615d81d4b0d0c2275da8de2e51b652e64ccc124917c17ecd3fcd",
+    "true_covariances.npz": "6f60d9fbf41c6167c504134856aad36df29c7edbbc26c979926ad3bb3524e3f3"
+  }
+}

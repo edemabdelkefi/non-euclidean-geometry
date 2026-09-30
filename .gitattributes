@@ -5,3 +5,4 @@
 *.yml text eol=lf
 *.pdf binary
 *.png binary
+*.npz binary

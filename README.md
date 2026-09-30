@@ -1,4 +1,40 @@
-# Non-Euclidean geometry laboratory
+# Non-Euclidean geometry: covariance manifolds and portfolio risk
+
+A numerical study of affine-invariant statistics on positive definite covariance matrices, with a synthetic portfolio-risk experiment. The original hyperbolic, Möbius and Lorentz benchmarks remain available as a separate study originating from a 2025 TIPE.
+
+![Covariance and portfolio research](results/research/covariance_research.png)
+
+## Covariance geometry for allocation
+
+The implementation provides matrix logarithms and exponentials, affine-invariant geodesics, logarithmic and exponential maps, parallel transport, log-Euclidean means and an iterative Fréchet mean with Armijo backtracking. Tests check congruence invariance, constant-speed geodesics, determinant interpolation, transported inner products and stationarity of the mean.
+
+The allocation experiment uses **20 independent synthetic paths**, each with **12 assets and 1,008 sessions**, three covariance regimes and variance-matched Student t innovations with five degrees of freedom. Initial chronological validation selects shrinkage separately for each estimator. Every later fit uses only the preceding 252 sessions. Portfolios rebalance every 21 sessions, with long-only weights capped at 25% at each rebalance, daily holdings drift and a 5 bp one-way proportional cost.
+
+| Covariance estimator | Mean annualized portfolio volatility | RMS reduction vs sample | Paired path bootstrap 95% interval |
+| --- | ---: | ---: | ---: |
+| sample | 6.038% | baseline | baseline |
+| diagonal shrinkage | 5.970% | 1.12% | [0.53%, 1.70%] |
+| log-Euclidean block mean | 5.995% | 0.76% | [-0.36%, 1.77%] |
+| affine-invariant block mean | 5.984% | 0.93% | [-0.13%, 1.90%] |
+| known-covariance oracle | 5.371% | 11.14% | [9.43%, 12.65%] |
+
+The geometric methods have small allocation gains in this design, with intervals spanning zero. Their portfolio variance forecasts are about 21.9% below the known conditional variance on average, versus 1.65% for validation-selected diagonal shrinkage. A geometric mean's smaller determinant does not automatically imply a better risk forecast. The oracle uses unobservable covariance states and is a diagnostic reference.
+
+There are **720 rolling affine-mean fits**, all converging in at most **26 iterations**, with maximum whitened gradient norm **9.98e-10**. The comparison intervals use 4,000 paired resamples of complete paths, preserving dependence within each path. They are pointwise and measure Monte Carlo uncertainty under this specified synthetic model.
+
+## Run the research study
+
+After installing the package as shown below:
+
+```bash
+python -m geometry_lab.research
+python -m unittest discover -s tests -v
+python -m geometry_lab.research --quick --output /tmp/geometry-research
+```
+
+[`docs/research.md`](docs/research.md) derives the manifold operations, covariance estimators and portfolio accounting. [`results/research/`](results/research) includes every synthetic asset return, the true covariance matrices, daily portfolios, validation scores, solver diagnostics, path-level uncertainty, figures and checksums. CI runs mathematical tests and a small complete experiment.
+
+## Original geometry benchmarks
 
 Numerical experiments on hyperbolic geodesics, Möbius transformations and Lorentz boosts. The starting point is a 2025 TIPE on spherical geometry, the Riemann sphere and geometrical applications in physics; the computational study benchmarks lengths and invariants rather than stopping at visualization.
 

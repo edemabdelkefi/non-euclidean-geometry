@@ -1,0 +1,31 @@
+{
+  "seed": 20261001,
+  "paths": 20,
+  "sessions": 1008,
+  "assets": 12,
+  "training_sessions": 252,
+  "validation_sessions": 63,
+  "covariance_block": 63,
+  "rebalance_sessions": 21,
+  "regime_breaks": [
+    0,
+    336,
+    672
+  ],
+  "student_degrees_of_freedom": 5,
+  "shrinkage_grid": [
+    0.0,
+    0.05,
+    0.15,
+    0.35,
+    0.65
+  ],
+  "position_cap": 0.25,
+  "one_way_cost_bp": 5.0,
+  "annual_sessions": 252,
+  "bootstrap_draws": 4000,
+  "selection": "initial chronological validation only; per-method alpha then frozen throughout the holdout",
+  "covariance_target": "diagonal of each estimated covariance",
+  "score": "zero-mean Gaussian quasi-likelihood, constants omitted, per asset",
+  "scope": "synthetic zero-mean Student t returns; known regime covariances; daily weight drift and proportional rebalance costs"
+}

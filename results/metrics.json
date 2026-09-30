@@ -1,0 +1,45 @@
+{
+  "protocol": {
+    "seed": 20260930,
+    "geometry": {
+      "geodesic_pairs": 1000,
+      "disk_radius": 0.75,
+      "simpson_intervals": [
+        16,
+        32,
+        64,
+        128,
+        256,
+        512
+      ],
+      "mobius_cases": 10000,
+      "lorentz_cases": 10000,
+      "beta_range": [
+        -0.99,
+        0.99
+      ]
+    }
+  },
+  "geometry": {
+    "geodesic_pairs": 1000,
+    "simpson_intervals": 512,
+    "max_relative_geodesic_error": 3.132276540951147e-08,
+    "convergence_order": 3.8983412127963226,
+    "mobius_cases": 10000,
+    "mobius_max_normalized_error": 2.1416269857638937e-14,
+    "mobius_candidate_matrices": 11732,
+    "lorentz_cases": 10000,
+    "lorentz_max_normalized_error": 8.992806499463768e-14
+  },
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "matplotlib": "3.11.2"
+  },
+  "csv_sha256": {
+    "geodesic_convergence.csv": "fc2bfd7e8397c14698df02eeeb155a6ff4eedbf451bf2ee93f9a22f88a857793",
+    "geodesics.csv": "0d03d664f4d809e15a1fbb2a511a76f5f3a9683cf811227a037452f60af04c44",
+    "lorentz.csv": "668b6c68258ac0f9b66ebd8e7415c9952dfe79c75a662797bb5a53a534b02188",
+    "mobius.csv": "60c10a11a9633fb66f4ae96dfaba7a56e1da7b18c7391d06bf799361d03dc5c1"
+  }
+}

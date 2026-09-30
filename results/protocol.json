@@ -1,0 +1,21 @@
+{
+  "seed": 20260930,
+  "geometry": {
+    "geodesic_pairs": 1000,
+    "disk_radius": 0.75,
+    "simpson_intervals": [
+      16,
+      32,
+      64,
+      128,
+      256,
+      512
+    ],
+    "mobius_cases": 10000,
+    "lorentz_cases": 10000,
+    "beta_range": [
+      -0.99,
+      0.99
+    ]
+  }
+}
